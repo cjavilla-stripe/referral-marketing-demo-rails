@@ -1,0 +1,2 @@
+module PaymentLinksHelper
+end

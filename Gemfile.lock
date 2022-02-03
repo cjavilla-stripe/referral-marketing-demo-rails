@@ -1,4 +1,13 @@
 GIT
+  remote: https://github.com/cjavdev/devise-tailwindcssed.git
+  revision: c81d352cbfbc8eaffa306b69ca8b4fc6166d0dc6
+  branch: rails-7
+  specs:
+    devise-tailwindcssed (0.1.4)
+      rails (>= 5.2.3.4, <= 7.2)
+      railties (> 4.0, <= 7.2)
+
+GIT
   remote: https://github.com/rails/rails.git
   revision: 61cf029f8269fe4214c54dd911f62c335371e6e8
   branch: main
@@ -244,6 +253,7 @@ DEPENDENCIES
   cssbundling-rails
   debug
   devise (~> 4.8)
+  devise-tailwindcssed!
   jbuilder
   jsbundling-rails
   letter_opener (~> 1.7)

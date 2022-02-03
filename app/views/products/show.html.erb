@@ -76,7 +76,7 @@
           <!-- If this affiliate already has a PaymentLink, show the URL here, otherwise allow them to create one -->
           <% if !@payment_link.blank? %>
             <div class="mt-8">
-              <h2 class="text-sm font-medium text-gray-900">Payment Link</h2>
+              <h2 class="text-sm font-medium text-gray-900">Your Affiliate Link</h2>
 
               <div class="mt-4 prose prose-sm text-gray-500">
                 <p><%= @payment_link.url %></p>
@@ -85,8 +85,14 @@
           <% else %>
             <form action="/payment_links" method="post">
               <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token">
-              <button class="mt-8 w-full bg-blue-400 border rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-color">Sell</button>
+              <input type="hidden" value="<%= @price.id %>" name="price">
+              <button class="mt-8 w-full bg-gray-400 border rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-color">Sell</button>
             </form>
+          <% end %>
+
+
+          <% if @price.product.metadata.keys.include?(:buy_url) %>
+            <a href="<%= @price.product.metadata&.buy_url %>" target="_blank" class="mt-8 w-full bg-blue-400 border rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-color">Buy</a>
           <% end %>
         </div>
       </div>

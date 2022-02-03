@@ -75,3 +75,4 @@ gem "resque", "~> 2.2"
 gem "stripe", "~> 5.43"
 
 gem "devise", "~> 4.8"
+gem 'devise-tailwindcssed', github: 'cjavdev/devise-tailwindcssed', branch: 'rails-7'
