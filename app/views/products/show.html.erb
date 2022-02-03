@@ -1,0 +1,97 @@
+<div class="bg-white">
+  <main class="mt-20 max-w-2xl mx-auto pb-16 px-4 sm:pb-24 sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="lg:grid lg:grid-cols-12 lg:auto-rows-min lg:gap-x-8">
+      <div class="lg:col-start-8 lg:col-span-5">
+        <div class="flex justify-between">
+          <h1 class="text-xl font-medium text-gray-900">
+            <%= @price.product.name %>
+          </h1>
+          <p class="text-xl font-medium text-gray-900">
+            <%= number_to_currency(@price.unit_amount / 100) %>
+          </p>
+        </div>
+        <!-- Reviews -->
+        <div class="mt-4">
+          <div class="flex items-center">
+            <p class="text-sm text-gray-700">
+              3.9
+            </p>
+            <div class="ml-1 flex items-center">
+              <!--
+                Heroicon name: solid/star
+
+                Active: "text-yellow-400", Inactive: "text-gray-200"
+              -->
+              <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+
+              <!-- Heroicon name: solid/star -->
+              <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+
+              <!-- Heroicon name: solid/star -->
+              <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+
+              <!-- Heroicon name: solid/star -->
+              <svg class="text-yellow-400 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+
+              <!-- Heroicon name: solid/star -->
+              <svg class="text-gray-200 h-5 w-5 flex-shrink-0" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+              </svg>
+            </div>
+            <div aria-hidden="true" class="ml-4 text-sm text-gray-300">·</div>
+            <div class="ml-4 flex">
+              <a href="#reviews" class="text-sm font-medium text-accent-color hover:text-brand-color">See all 12 reviews</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image gallery -->
+      <div class="mt-8 lg:mt-0 lg:col-start-1 lg:col-span-7 lg:row-start-1 lg:row-span-3">
+        <h2 class="sr-only">Images</h2>
+        <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-8">
+          <img src="<%= @price.product.images.first %>" alt="<%= @price.product.description %>" class="lg:col-span-2 lg:row-span-2 rounded-lg">
+        </div>
+      </div>
+
+      <div class="mt-8 lg:col-span-5">
+        <div>
+          <!-- Product details -->
+          <div class="mt-2">
+            <h2 class="text-sm font-medium text-gray-900">Product Description Header</h2>
+
+            <div class="mt-4 prose prose-sm text-gray-500">
+              <p><%= @price.product.description %></p>
+            </div>
+          </div>
+
+          <!-- If this affiliate already has a PaymentLink, show the URL here, otherwise allow them to create one -->
+          <% if !@payment_link.blank? %>
+            <div class="mt-8">
+              <h2 class="text-sm font-medium text-gray-900">Payment Link</h2>
+
+              <div class="mt-4 prose prose-sm text-gray-500">
+                <p><%= @payment_link.url %></p>
+              </div>
+            </div>
+          <% else %>
+            <form action="/payment_links" method="post">
+              <input type="hidden" value="<%= form_authenticity_token %>" name="authenticity_token">
+              <button class="mt-8 w-full bg-blue-400 border rounded-md py-3 px-8 flex items-center justify-center text-base font-medium text-white hover:opacity-80 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-brand-color">Sell</button>
+            </form>
+          <% end %>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reviews -->
+  </main>
+</div>
