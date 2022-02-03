@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
          :trackable
-  has_many :payment_links
 
   before_validation :maybe_create_account, on: :create
   def maybe_create_account

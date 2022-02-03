@@ -15,6 +15,5 @@ class ProductsController < ApplicationController
       id: params[:id],
       expand: ['product']
     )
-    @payment_link = PaymentLink.find_by(price: @price.id)
   end
 end
