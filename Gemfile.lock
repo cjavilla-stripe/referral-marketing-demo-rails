@@ -1,9 +1,9 @@
 GIT
   remote: https://github.com/cjavdev/devise-tailwindcssed.git
-  revision: c81d352cbfbc8eaffa306b69ca8b4fc6166d0dc6
+  revision: be35fea7c4f2290fe2b68286ca02b91407259acb
   branch: rails-7
   specs:
-    devise-tailwindcssed (0.1.4)
+    devise-tailwindcssed (0.1.6)
       rails (>= 5.2.3.4, <= 7.2)
       railties (> 4.0, <= 7.2)
 
