@@ -15,5 +15,6 @@ class ProductsController < ApplicationController
       id: params[:id],
       expand: ['product']
     )
+    @payment_link = current_user.payment_links.find_by(stripe_price_id: @price.id)
   end
 end

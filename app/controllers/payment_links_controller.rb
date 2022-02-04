@@ -3,35 +3,40 @@ class PaymentLinksController < ApplicationController
   before_action :require_account!
 
   def create
+    # Retrieve the current price
     price = Stripe::Price.retrieve(params[:price])
-    commission = 0.15 # Affiliates earn 15% of the payment
-    commission_amount = price.unit_amount * commission
 
+    # Calculate the commission for the affiliate
+    commission = 0.15
+    affiliate_commission = price.unit_amount * commission # 7000 * 0.15 = 1050
+
+    # Create a new Stripe Payment Link
     payment_link = Stripe::PaymentLink.create(
       line_items: [{
-        price: params[:price],
+        price: price.id,
         quantity: 1
       }],
-      transfer_data: {
-        destination: current_user.stripe_account_id,
-        amount: commission_amount.to_i,
+      automatic_tax: {
+        enabled: true,
       },
       allow_promotion_codes: true,
-      automatic_tax: {
-        enabled: true
-      },
       billing_address_collection: 'auto',
       shipping_address_collection: {
-        allowed_countries: ['US', 'CA', 'MX', 'IE', 'GB', 'AU', 'NZ', 'BE', 'FR', 'DE', 'NL', 'IT', 'ES', 'DK', 'NO', 'SE', 'FI', 'EE', 'LV', 'LT', 'PL', 'CZ', 'AT', 'CH', 'SK', 'SI', 'HR', 'BA', 'BG', 'RO', 'RS', 'ME', 'MK', 'GR', 'PT', 'HU', 'IS', 'LI', 'MT', 'CY', 'MC', 'SI', 'TR', 'BG', 'BY', 'UA', 'MD', 'RU', 'UA', 'RS', 'CZ', 'UA', 'LV', 'LT', 'PL', 'CZ', 'AT', 'CH', 'SK', 'SI', 'HR', 'BA', 'BG', 'RO', 'RS', 'ME', 'MK', 'GR', 'PT', 'HU', 'IS', 'LI', 'MT', 'CY', 'MC', 'SI', 'TR', 'BG', 'BY', 'UA', 'MD', 'RU', 'UA', 'RS', 'CZ', 'UA', 'LV', 'LT', 'PL', 'CZ', 'AT', 'CH', 'SK', 'SI', 'HR', 'BA', 'BG', 'RO', 'RS', 'ME', 'MK', 'GR', 'PT', 'HU', 'IS', 'LI', 'MT', 'CY', 'MC', 'SI', 'TR', 'BG', 'BY', 'UA', 'MD', 'RU', 'UA', 'RS', 'CZ', 'UA', 'LV', 'LT', 'PL', 'CZ', 'AT', 'CH', 'SK', 'SI', 'HR', 'BA', 'BG', 'RO', 'RS', 'ME', 'MK', 'GR', 'PT', 'HU', 'IS', 'LI', 'MT', 'CY', 'MC', 'SI', 'TR', 'BG', 'BY', 'UA', 'MD', 'RU'],
+        allowed_countries: ['US', 'MX', 'CA'],
       },
+      transfer_data: {
+        destination: current_user.stripe_account_id,
+        amount: affiliate_commission.to_i,
+      }
     )
 
-    @payment_link = current_user.payment_links.create!(
+    # Store the PaymentLink in the database associated with the affiliate
+    @payment_link = current_user.payment_links.create(
       url: payment_link.url,
-      price: params[:price],
-      stripe_id: payment_link.id
+      stripe_id: payment_link.id,
+      stripe_price_id: price.id,
     )
 
-    redirect_back fallback_location: product_path(params[:price])
+    redirect_back fallback_location: products_path
   end
 end
