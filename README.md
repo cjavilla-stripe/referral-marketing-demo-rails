@@ -1,24 +1,7 @@
-# README
+# Affiliate marketing site with Stripe Connect and Payment Links
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+In this demo you'll learn how to setup a basic affiliate marketing platform
+using Stripe Connect to offer affiliates a way to receive payment, and
+PaymentLinks as the way to send end customers through the payment flow.
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
